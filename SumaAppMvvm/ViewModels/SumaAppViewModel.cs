@@ -11,9 +11,9 @@ namespace SumaAppMvvm.ViewModels
     public partial class SumaAppViewModel : ObservableObject
     {
         [ObservableProperty]
-        private double? numero1;
+        private string numero1;
         [ObservableProperty]
-        private double? numero2;
+        private string numero2;
         [ObservableProperty]
         private double resultado;
 
@@ -26,13 +26,13 @@ namespace SumaAppMvvm.ViewModels
         private void Calcular()
         {
 
-            if (Numero1 == default(double) || Numero2 == default(double))
+            if (Numero1 == null || Numero2 == null)
             {
                 Alerta("Advertencia", "Los campos numericos no pueden ir vacios");
             }
             try
             {
-                Resultado = (double)(Numero1 + Numero2);
+                 Resultado = Math.round(Convert.ToDouble(Numero1) + Convert.ToDouble(Numero2),2);
             }
             catch (Exception ex)
             {
@@ -42,8 +42,8 @@ namespace SumaAppMvvm.ViewModels
         [RelayCommand]
         private void Limpiar()
         {
-            Numero1 = 0;
-            Numero2 = 0;
+            Numero1 = string.Empty;
+            Numero2 = string.Empty;
             Resultado = 0;
             
 
