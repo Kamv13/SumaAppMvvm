@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SumaAppMvvm.Views.SumaAppViewModel"
+             x:Class="SumaAppMvvm.Views.SumaAppView"
              xmlns:viewModel="clr-namespace:SumaAppMvvm.ViewModels"
              x:DataType="viewModel:SumaAppViewModel"
              Title="SumaAppViewModel">
@@ -10,13 +10,16 @@
     
     <VerticalStackLayout Padding="20" Spacing="5">
         <Label Text="Ingrese el primer numero" />
-        <Entry Text="" Keyboard="Numeric" />
+        <Entry Text="{Binding Numero1}" Keyboard="Numeric" />
 
         <Label Text="Ingrese el segundo numero" />
-        <Entry Text="" Keyboard="Numeric" />
+        <Entry Text="{Binding Numero2}" Keyboard="Numeric" />
 
-        <Button Text="Sumar" Background="green" />
-        <Button Text="limpiar" BackgroundColor="Red" />
+        <Label Text="Resultado" />
+        <Entry Text="{Binding Resultado}" IsReadOnly="True"/>
+
+        <Button Text="Sumar" Background="green" Command="{Binding CalcularCommand}"/>
+        <Button Text="limpiar" BackgroundColor="Red" Command="{Binding LimpiarCommand}" />
 
     </VerticalStackLayout>
 </ContentPage>
