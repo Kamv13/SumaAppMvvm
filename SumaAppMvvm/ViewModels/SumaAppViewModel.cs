@@ -32,7 +32,7 @@ namespace SumaAppMvvm.ViewModels
             }
             try
             {
-                 Resultado = Math.round(Convert.ToDouble(Numero1) + Convert.ToDouble(Numero2),2);
+                 Resultado = Math.Round(Convert.ToDouble(Numero1) + Convert.ToDouble(Numero2),2);
             }
             catch (Exception ex)
             {
